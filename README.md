@@ -10,3 +10,12 @@ Extracted from [PCL 1.11.1-AllInOne-msvc2019-win64.exe](https://github.com/Point
 
 Not compatible with PCL 1.12.1
 
+Build
+-----
+Configure & Generate VS Project with CMake >3.11
+
+Set your CMAKE_INSTALL_PREFIX
+
+TODO
+----
+visualization is not working, because VTK-8.2 is Not compatible
