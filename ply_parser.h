@@ -155,20 +155,6 @@ namespace pcl
               {
                 return (static_cast<callbacks_element<ScalarType>&> (callbacks_).callback);
               }
-             
-              template <typename ScalarType>
-              friend typename scalar_property_definition_callback_type<ScalarType>::type&
-              at (scalar_property_definition_callbacks_type& scalar_property_definition_callbacks)
-              {
-                return (scalar_property_definition_callbacks.get<ScalarType> ());
-              }
-           
-              template <typename ScalarType>
-              friend const typename scalar_property_definition_callback_type<ScalarType>::type&
-              at (const scalar_property_definition_callbacks_type& scalar_property_definition_callbacks)
-              {
-                return (scalar_property_definition_callbacks.get<ScalarType> ());
-              }
           };
 
           template <typename SizeType, typename ScalarType>
@@ -241,20 +227,6 @@ namespace pcl
               get () const
               {
                 return (static_cast<const callbacks_element<boost::mpl::pair<SizeType, ScalarType> >&> (callbacks_).callback);
-              }
-
-              template <typename SizeType, typename ScalarType>
-              friend typename list_property_definition_callback_type<SizeType, ScalarType>::type&
-              at (list_property_definition_callbacks_type& list_property_definition_callbacks)
-              {
-                return (list_property_definition_callbacks.get<SizeType, ScalarType> ());
-              }
-           
-              template <typename SizeType, typename ScalarType>
-              friend const typename list_property_definition_callback_type<SizeType, ScalarType>::type&
-              at (const list_property_definition_callbacks_type& list_property_definition_callbacks)
-              {
-                return (list_property_definition_callbacks.get<SizeType, ScalarType> ());
               }
           };
 
@@ -418,6 +390,34 @@ namespace pcl
           std::size_t line_number_;
           element* current_element_;
       };
+
+      template <typename ScalarType>
+      typename ply_parser::scalar_property_definition_callback_type<ScalarType>::type&
+          at(ply_parser::scalar_property_definition_callbacks_type& scalar_property_definition_callbacks)
+      {
+          return (scalar_property_definition_callbacks.get<ScalarType>());
+      }
+
+      template <typename ScalarType>
+      const typename ply_parser::scalar_property_definition_callback_type<ScalarType>::type&
+          at(const ply_parser::scalar_property_definition_callbacks_type& scalar_property_definition_callbacks)
+      {
+          return (scalar_property_definition_callbacks.get<ScalarType>());
+      }
+
+      template <typename SizeType, typename ScalarType>
+      typename ply_parser::list_property_definition_callback_type<SizeType, ScalarType>::type&
+          at(ply_parser::list_property_definition_callbacks_type& list_property_definition_callbacks)
+      {
+          return (list_property_definition_callbacks.get<SizeType, ScalarType>());
+      }
+
+      template <typename SizeType, typename ScalarType>
+      const typename ply_parser::list_property_definition_callback_type<SizeType, ScalarType>::type&
+          at(const ply_parser::list_property_definition_callbacks_type& list_property_definition_callbacks)
+      {
+          return (list_property_definition_callbacks.get<SizeType, ScalarType>());
+      }
     } // namespace ply
   } // namespace io
 } // namespace pcl
