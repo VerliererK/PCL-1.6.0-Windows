@@ -28,6 +28,8 @@ if(NOT pcl_POPULATED)
        DESTINATION ${pcl_SOURCE_DIR}/io/include/pcl/io/ply)
   file(COPY ${CMAKE_CURRENT_LIST_DIR}/PCLConfig.cmake.in 
        DESTINATION ${pcl_SOURCE_DIR})
+  file(COPY ${CMAKE_CURRENT_LIST_DIR}/pcl_macros.h 
+       DESTINATION ${pcl_SOURCE_DIR}/common/include/pcl)
   
   add_definitions(-D_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS)
   add_subdirectory(${pcl_SOURCE_DIR} ${pcl_BINARY_DIR})

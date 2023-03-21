@@ -156,7 +156,7 @@ pcl_round (float number)
 
 #ifdef _WIN32
 __inline float
-log2f (float x)
+pcl_log2f (float x)
 {
   return (static_cast<float> (logf (x) * M_LOG2E));
 }
